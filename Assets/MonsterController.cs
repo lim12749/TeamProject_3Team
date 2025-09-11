@@ -19,7 +19,10 @@ public class MonsterController : MonoBehaviour
         // 이동 방향에 따라 몬스터 위치 변경
         if (movingRight)
         {
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+            // MoveTowards를 사용해서 부드럽게 이동
+            transform.position = Vector3.MoveTowards(transform.position,
+                new Vector3(rightLimit, transform.position.y, transform.position.z),
+                moveSpeed * Time.deltaTime);
 
             // 오른쪽 한계에 도달하면 방향 변경
             if (transform.position.x >= rightLimit)
@@ -29,7 +32,10 @@ public class MonsterController : MonoBehaviour
         }
         else
         {
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            // MoveTowards를 사용해서 부드럽게 이동
+            transform.position = Vector3.MoveTowards(transform.position,
+                new Vector3(leftLimit, transform.position.y, transform.position.z),
+                moveSpeed * Time.deltaTime);
 
             // 왼쪽 한계에 도달하면 방향 변경
             if (transform.position.x <= leftLimit)
@@ -38,6 +44,4 @@ public class MonsterController : MonoBehaviour
             }
         }
     }
-
-    
-    }
+}
