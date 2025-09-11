@@ -20,6 +20,8 @@ public class SimpleMover : MonoBehaviour
 
     CharacterController cc;
 
+    public Animator animator;
+
     void Awake()
     {
         cc = GetComponent<CharacterController>();
@@ -68,5 +70,10 @@ public class SimpleMover : MonoBehaviour
 
         // 6) 애니 속도(0~1)
         Speed01 = Mathf.MoveTowards(Speed01, Mathf.InverseLerp(0f, runSpeed, targetSpeed), 8f * Time.deltaTime);
+    }
+
+    void LateUpdate()
+    {
+        animator.SetFloat("Speed01",Speed01);
     }
 }
