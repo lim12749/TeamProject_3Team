@@ -139,7 +139,19 @@ public class Projectile : MonoBehaviour {
 			//Destroy bullet object
 			Destroy(gameObject);
 		}
-	}
+
+        var damageable = collision.gameObject.GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            // 여기서 데미지값을 정하세요. 예: 50f
+            float damageAmount = 10f; // 즉사로 만들려면 충분히 큰 값
+            bool isDead = damageable.TakeDamage(damageAmount);
+
+            // 총알 소멸
+            Destroy(gameObject);
+            return;
+        }
+    }
 
 	private IEnumerator DestroyTimer () 
 	{
