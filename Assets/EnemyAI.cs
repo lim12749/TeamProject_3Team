@@ -3,8 +3,15 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Target")]
     [SerializeField] private Transform target;
-    [SerializeField] private float chaseRange = 5f;
+
+    [Header("AI Ranges")]
+    [SerializeField] private float chaseRange = 5f;      // 감지 범위
+    [SerializeField] private float attackRange = 1.5f;   // 공격 범위
+
+    [Header("Animator")]
+    [SerializeField] private Animator animator;          // Animator 연결
 
     private NavMeshAgent navMeshAgent;
     private EnemyHealth health;
@@ -16,42 +23,48 @@ public class EnemyAI : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        // ★ 죽었을 때 AI 끄기 — 중요
         if (health.IsDead())
         {
-            enabled = false;              // EnemyAI 스크립트 자체 비활성화
-            navMeshAgent.enabled = false; // NavMeshAgent 멈춤 (or isStopped 사용 가능)
+            enabled = false;
+            navMeshAgent.enabled = false;
+            animator.SetFloat("Speed", 0f); // 멈춤
+            animator.SetBool("Attack", false);
             return;
         }
 
-        // ★ 플레이어까지 거리 계산
         distanceToTarget = Vector3.Distance(target.position, transform.position);
+
+        // 감지 범위 체크
+        if (!isProvoked && distanceToTarget <= chaseRange)
+        {
+            isProvoked = true;
+        }
 
         if (isProvoked)
         {
             EngageTarget();
         }
-        else if (distanceToTarget <= chaseRange)
+        else
         {
-            isProvoked = true; // 추적 시작
+            animator.SetFloat("Speed", 0f); // Idle
+            animator.SetBool("Attack", false);
         }
     }
 
-
     private void EngageTarget()
     {
-        // ★ 추적 (제동 거리보다 멀면 이동)
-        if (distanceToTarget >= navMeshAgent.stoppingDistance)
+        if (distanceToTarget > attackRange)
         {
             ChaseTarget();
         }
-
-        // ★ 공격 (제동 거리 안에 들어오면 공격)
-        if (distanceToTarget <= navMeshAgent.stoppingDistance)
+        else
         {
             AttackTarget();
         }
@@ -59,12 +72,28 @@ public class EnemyAI : MonoBehaviour
 
     private void ChaseTarget()
     {
+        navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(target.position);
+
+        // ⭐ Speed 정규화
+        float normalizedSpeed = navMeshAgent.velocity.magnitude / navMeshAgent.speed;
+        animator.SetFloat("Speed", normalizedSpeed);  // 0~1 범위
+        animator.SetBool("Attack", false);
     }
 
     private void AttackTarget()
     {
-        // 공격 애니메이션, 데미지 처리 등 들어가는 곳
+        navMeshAgent.isStopped = true;
+        animator.SetFloat("Speed", 0f); // 멈춤
+        animator.SetBool("Attack", true);
         Debug.Log("Attack!");
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, chaseRange); // 감지 범위
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, attackRange); // 공격 범위
     }
 }
