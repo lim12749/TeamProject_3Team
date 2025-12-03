@@ -127,11 +127,12 @@ namespace InfimaGames.LowPolyShooterPack
         /// The player character's camera.
         /// </summary>
         private Transform playerCamera;
-        
+        internal int damage;
+
         #endregion
 
         #region UNITY
-        
+
         protected override void Awake()
         {
             //Get Animator.

@@ -16,7 +16,11 @@ TagManager:
   - Wood (Static)
   - Dirt (Static)
   - Wood
+monster
+  - Bullet
+
   - Enemy
+main
   layers:
   - Default
   - TransparentFX
