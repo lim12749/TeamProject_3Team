@@ -84,6 +84,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!114 &4624225957221210479
 MonoBehaviour:
+  m_SerializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,8 +141,8 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
-  m_characterSpacing: 1
-  m_wordSpacing: 1
+  m_characterSpacing: 0.5681818
+  m_wordSpacing: 0.5681818
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -311,6 +312,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!114 &8875239262955087628
 MonoBehaviour:
+  m_SerializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -367,8 +369,8 @@ MonoBehaviour:
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
-  m_characterSpacing: 1
-  m_wordSpacing: 1
+  m_characterSpacing: 0.5681818
+  m_wordSpacing: 0.5681818
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -549,6 +551,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!114 &5758853929532471832
 MonoBehaviour:
+  m_SerializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -645,9 +648,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 3.5
-  m_wordSpacing: 1
-  m_lineSpacing: -10
+  m_characterSpacing: 1.988636
+  m_wordSpacing: 0.5681818
+  m_lineSpacing: -5.681818
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -724,6 +727,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!114 &5393623834532072030
 MonoBehaviour:
+  m_SerializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -783,8 +787,8 @@ MonoBehaviour:
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
-  m_characterSpacing: 1
-  m_wordSpacing: 1
+  m_characterSpacing: 0.5681818
+  m_wordSpacing: 0.5681818
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -1193,6 +1197,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!114 &5393623835644209929
 MonoBehaviour:
+  m_SerializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1340,6 +1345,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!114 &5393623835784200450
 MonoBehaviour:
+  m_SerializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1551,6 +1557,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!114 &5393623836115087788
 MonoBehaviour:
+  m_SerializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1607,8 +1614,8 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
-  m_characterSpacing: 1
-  m_wordSpacing: 1
+  m_characterSpacing: 0.5681818
+  m_wordSpacing: 0.5681818
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -1829,6 +1836,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 --- !u!114 &7260245196890125288
 MonoBehaviour:
+  m_SerializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2255,6 +2263,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!114 &7920035857458848741
 MonoBehaviour:
+  m_SerializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
