@@ -16,11 +16,8 @@ TagManager:
   - Wood (Static)
   - Dirt (Static)
   - Wood
-monster
-  - Bullet
-
   - Enemy
-main
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -30,15 +27,15 @@ main
   - UI
   - 
   - 
-  - Wall
-  - First Person View
-  - Character
-  - Post Processing
-  - Post Processing Weapon
-  - Post Processing Scope
-  - Invisible Wall
-  - Projectile
-  - WeaponOnly
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
