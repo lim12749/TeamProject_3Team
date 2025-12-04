@@ -1,11 +1,6 @@
 ﻿using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-/// <summary>
-/// MeshCombiner — 여러 개의 Mesh를 하나로 합치는 기능을 수행하는 클래스
-/// (MeshCombinerEditor.cs와 연동)
-/// </summary>
 [ExecuteInEditMode]
 [DisallowMultipleComponent]
 public class MeshCombiner : MonoBehaviour
@@ -22,9 +17,6 @@ public class MeshCombiner : MonoBehaviour
     public string FolderPath = "CombinedMeshes";
     public MeshFilter[] meshFiltersToSkip;
 
-    /// <summary>
-    /// 실제 메쉬 합치기 수행
-    /// </summary>
     public void CombineMeshes(bool logInfo = false)
     {
         MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>(CombineInactiveChildren);
@@ -66,7 +58,11 @@ public class MeshCombiner : MonoBehaviour
         if (myMR == null) myMR = gameObject.AddComponent<MeshRenderer>();
 
         if (GenerateUVMap)
-            Unwrapping.GenerateSecondaryUVSet(combinedMesh);
+        {
+#if UNITY_EDITOR
+            UnityEditor.Unwrapping.GenerateSecondaryUVSet(combinedMesh);
+#endif
+        }
 
         if (logInfo)
             Debug.Log($"<color=green><b>{combine.Count}</b> meshes combined into one mesh successfully.</color>", this);
