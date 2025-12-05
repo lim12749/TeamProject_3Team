@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MonsterHealth : MonoBehaviour
+public class MonsterHealth : MonoBehaviour, IDamageable
 {
     public int maxHealth = 100;
     private int currentHealth;
@@ -16,9 +16,7 @@ public class MonsterHealth : MonoBehaviour
         Debug.Log("몬스터 체력: " + currentHealth);
 
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     private void Die()
