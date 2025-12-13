@@ -5,7 +5,7 @@ public class Quit : MonoBehaviour
 {
     public void Scene()
     {
-        SceneManager.LoadScene("Scene_A");
+        SceneManager.LoadScene("DemoDay");
     }
 
     public void QuitGame()

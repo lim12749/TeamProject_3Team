@@ -4,7 +4,7 @@ using System;
 using System.Reflection;
 
 [CustomEditor(typeof(MonoBehaviour), true)]
-public class MeshCombinerEditor : Editor
+public class MeshCombinerEditor : UnityEditor.Editor
 {
     public override void OnInspectorGUI()
     {
